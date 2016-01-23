@@ -8,11 +8,12 @@
 	<package name="resultTypes" namespace="/r" extends="struts-default">
 		<!-- 服务器跳转 -->
 		<action name="r1">
-			<result type="dispatcher">/r1.jsp</result>
+			<result type="dispatcher">/Jsp/r1.jsp</result>
 		</action>
-		<!-- 重定向到师徒 -->
+		<!-- 客户端跳转 -->
 		<action name="r2">
-			<result type="redirect">/r2.jsp</result>
+			<result type="redirect">/Jsp/r2.jsp</result>
+			
 		</action>
 		<!-- 重定向到action -->
 		<action name="r3">

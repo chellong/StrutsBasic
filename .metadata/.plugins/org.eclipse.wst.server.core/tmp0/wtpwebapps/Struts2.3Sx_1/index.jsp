@@ -106,5 +106,41 @@
 	
 	<hr style="border: 1 dashed #987cb9" />
 
+
+	Result类型
+	<ol>
+		<li><a href="user/user_0016?type=1">返回success</a></li>
+		<li><a href="user/user_0016?type=2">返回error</a></li>
+		<li><a href="user/user_0016?type=3">返回global result</a></li>
+		<li><a href="admin/admin">admin,继承user包</a></li>
+	</ol>
+	
+	<hr style="border: 1 dashed #987cb9" />
+	
+	动态结果
+	一定不要忘了为动态结果的保存值设置set get方法
+	<ol>
+	<li><a href="user/user_0017?type=1">返回success</a></li>
+	<li><a href="user/user_0017?type=2">返回error</a></li>
+	</ol>
+	
+	<hr style="border: 1 dashed #987cb9" />
+	向结果传参数
+	<ol>
+	<li><a href="user/user_0018?type=1">传参数</a></li>
+	</ol>
+	
+	<hr style="border: 1 dashed #987cb9" />
+	<hr style="border: 1 dashed #987cb9" />
+	<hr style="border: 1 dashed #987cb9" />
+	<hr style="border: 1 dashed #987cb9" />
+	未<br/>
+	完<br/>
+	待<br/>
+	续<br/>
+	。<br/>
+	。<br/>
+	。<br/>
+	<hr style="border: 1 dashed #987cb9" />
 </body>
 </html>

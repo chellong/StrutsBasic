@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<base href="<%=basePath%>" />
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030" />
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="path/path.action">路径问题说明</a>
+	<hr style="border: 1 dashed #987cb9" />
+	Action执行的时候并不一定要执行execute方法
+	<br /> 可以在配置文件中配置Action的时候用method=来指定执行哪个方法
+	也可以在Url地址中动态指定（动态方法调用DMI）（推荐）
+	<br />
+	<a href="/user/userAdd">添加用户</a>
+	<br />
+	<a href="/user/user!add">添加用户</a>
+	<br /> 前者会产生太多的action，所以不推荐使用
+
+	<hr style="border: 1 dashed #987cb9" />
+
+	使用通配符，将配置量降到最低
+	<br />
+	<a href="/actions/Studentadd">添加学生</a>
+	<a href="/actions/Studentdelete">删除学生</a>
+	<br /> 不过，一定要遵守"约定优于配置"的原则
+	<br />
+	<a href="/actions/Teacher_add">添加老师</a>
+	<a href="/actions/Teacher_delete">删除老师</a>
+	<a href="/actions/Course_add">添加课程</a>
+	<a href="/actions/Course_delete">删除课程</a>
+
+	<hr style="border: 1 dashed #987cb9" />
+	使用action属性接收参数
+	<a href="user/user_007?name=a&age=8">添加用户</a>
+
+	<hr style="border: 1 dashed #987cb9" />
+	<a href="user/user_008?user.name=a&user.age=8">使用Domain
+		Model接收参数,添加用户</a>
+
+	<!--中文问题 -->
+	<hr style="border: 1 dashed #987cb9" />
+	使用action属性接收参数，测试中文问题
+	<form action="user/user_008" method="post">
+		姓名：<input type="text" name="name"></input> <input type="submit"
+			value="submit" />
+	</form>
+	<!--数据验证 -->
+	<hr style="border: 1 dashed #987cb9" />
+	使用addFieldError方法和s:fieldError标签简单处理数据校验
+	<a href="user/user_009?name=a">添加错误的用户</a>
+	<a href="user/user_009?name=admin">添加真确的用户</a>
+
+	<hr style="border: 1 dashed #987cb9" />
+	取得Map类型request,session,application,真实类型 HttpServletRequest,
+	HttpSession, ServletContext的引用:
+	<ol>
+		<li>前三者：依赖于容器</li>
+		<!--(只用这种) -->
+		<li>前三者：IOC</li>
+		<li>后三者：依赖于容器</li>
+		<li>后三者：IOC</li>
+	</ol>
+	<br />
+	<form name="f" action="" method="post">
+		用户名：<input type="text" name="name" /> 密码：<input type="text"
+			name="password" /> <br /> 
+		<br/>
+		<br/>
+		<input type="button" value="submit1"
+			onclick="javascript:document.f.action='login/login1';document.f.submit();" />
+		<input type="button" value="submit2"
+			onclick="javascript:document.f.action='login/login2';document.f.submit();" />
+		<input type="button" value="submit3"
+			onclick="javascript:document.f.action='login/login3';document.f.submit();" />
+		<input type="button" value="submit4"
+			onclick="javascript:document.f.action='login/login4';document.f.submit();" />
+	</form>
+
+	<hr style="border: 1 dashed #987cb9" />
+	Result类型
+	<ol>
+	<li><a href="r/r1">dispatcher</a></li>
+	<li><a href="r/r2">redirect</a></li>
+	<li><a href="r/r3">chain</a></li>
+	<li><a href="r/r4">redirectAction</a></li>
+	<li>freemarker</li>
+	<li>httpheader</li>
+	<li>stream</li>
+	<li>velocity</li>
+	<li>xslt</li>
+	<li>plaintext</li>
+	<li>tiles</li>
+	</ol>
+	
+	<hr style="border: 1 dashed #987cb9" />
+
+
+	Result类型
+	<ol>
+		<li><a href="user/user_0016?type=1">返回success</a></li>
+		<li><a href="user/user_0016?type=2">返回error</a></li>
+		<li><a href="user/user_0016?type=3">返回global result</a></li>
+		<li><a href="admin/user_0016">admin,继承user包</a></li>
+	</ol>
+	
+	<hr style="border: 1 dashed #987cb9" />
+	
+	<hr style="border: 1 dashed #987cb9" />
+</body>
+</html>
