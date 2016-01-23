@@ -1,0 +1,17 @@
+package com.example.struts2.user.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class UserAction extends ActionSupport {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7354673590750221967L;
+
+	public String add() {
+		
+		return SUCCESS;
+	}
+	
+	
+}

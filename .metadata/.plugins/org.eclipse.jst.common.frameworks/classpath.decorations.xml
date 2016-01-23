@@ -4,4 +4,9 @@
       <source-attachment-path>D:/源码/struts-2.3.24.1-all.zip</source-attachment-path>
     </entry>
   </container>
+  <container id="Struts2.3Sx_1!org.eclipse.jst.j2ee.internal.web.container">
+    <entry id="E:/StrutsBasic/Struts2.3Sx_1/WebContent/WEB-INF/lib/xwork-core-2.3.24.1.jar">
+      <source-attachment-path>D:/源码/struts-2.3.24.1-all.zip</source-attachment-path>
+    </entry>
+  </container>
 </classpath>

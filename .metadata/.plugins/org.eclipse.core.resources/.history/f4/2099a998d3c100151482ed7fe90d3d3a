@@ -1,0 +1,64 @@
+package com.example.struts2.user.action;
+
+import com.example.struts2.user.model.User;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+/**
+ * 
+ * implements ModelDriven<User> 不常用
+ * @author 北飞的候鸟
+ *
+ */
+public class UserAction extends ActionSupport implements ModelDriven<User> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7354673590750221967L;
+	//属性
+	private String name;
+	private int age;
+	//DemainModel
+	private User user;
+	
+	public String add() {
+		System.out.println("name=" + name);
+		System.out.println("age=" + age);
+		
+		System.out.println("****DomainModelParamInput****");
+		System.out.println("name=" + user.getName());
+		System.out.println("age=" + user.getAge());
+		
+		return SUCCESS;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public User getModel() {
+		return user;
+	}
+	
+}

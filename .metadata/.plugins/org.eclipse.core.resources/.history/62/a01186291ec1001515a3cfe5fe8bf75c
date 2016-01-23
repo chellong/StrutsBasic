@@ -1,0 +1,7 @@
+package com.example.struts2.path.action.PathAction;
+
+public class PathAction {
+	public String execute() {
+		return "path";
+	}
+}
