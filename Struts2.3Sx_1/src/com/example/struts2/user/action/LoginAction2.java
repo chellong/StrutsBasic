@@ -8,6 +8,12 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 大部分时候使用这种方式
+ * 
+ * @author 北飞的候鸟
+ *
+ */
 public class LoginAction2 extends ActionSupport implements RequestAware,SessionAware, ApplicationAware {
 	
 	private static final long serialVersionUID = -5547933661238786710L;

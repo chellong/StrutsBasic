@@ -8,6 +8,12 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<package name="default" namespace="/" extends="struts-default">
+<!-- 	    默認頁 -->
+	    <default-action-ref name="index"></default-action-ref>
+    	<action name="index">
+    		<result>/default.jsp</result>
+    	</action>
+	    
 		<action name="hello">
 			<result>
 				/hello.jsp
@@ -51,7 +57,7 @@
 		</action>
 		<!-- 009 -->
 		<action name="user_009" class="com.example.struts2.user.action.UserAction2"
-		    method="add">
+			method="add">
 			<result>/user_add_success.jsp</result>
 			<result name="error">/user_add_error.jsp</result>
 		</action>
@@ -69,11 +75,7 @@
 			<!-- {0}_success.jsp -->
 		</action>
 	</package>
-	
-	<!-- 012 -->
-	<package name="login" extends="struts-default" namespace="/login">
-        <action name="login*" class="com.example.struts2.user.action.LoginAction{1}">
-            <result>/user_login_success.jsp</result>
-        </action>
-    </package>
+	<!-- 包含 -->
+	<include file="login.xml"></include>
+	<include file="resulttype.xml"></include>
 </struts>

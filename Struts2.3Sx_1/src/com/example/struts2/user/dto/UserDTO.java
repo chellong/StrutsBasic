@@ -1,7 +1,7 @@
 package com.example.struts2.user.dto;
 
 /**
- * 带密码确认的实体
+ * user中不帶密碼確認，带密码确认的实体
  * 
  * @author 北飞的候鸟
  *

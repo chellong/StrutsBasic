@@ -67,7 +67,7 @@
 	HttpSession, ServletContext的引用:
 	<ol>
 		<li>前三者：依赖于容器</li>
-		<!-- (只用这种) -->
+		<!--(只用这种) -->
 		<li>前三者：IOC</li>
 		<li>后三者：依赖于容器</li>
 		<li>后三者：IOC</li>
@@ -75,7 +75,10 @@
 	<br />
 	<form name="f" action="" method="post">
 		用户名：<input type="text" name="name" /> 密码：<input type="text"
-			name="password" /> <br /> <input type="button" value="submit1"
+			name="password" /> <br /> 
+		<br/>
+		<br/>
+		<input type="button" value="submit1"
 			onclick="javascript:document.f.action='login/login1';document.f.submit();" />
 		<input type="button" value="submit2"
 			onclick="javascript:document.f.action='login/login2';document.f.submit();" />
@@ -85,6 +88,22 @@
 			onclick="javascript:document.f.action='login/login4';document.f.submit();" />
 	</form>
 
+	<hr style="border: 1 dashed #987cb9" />
+	Result类型
+	<ol>
+	<li><a href="r/r1">dispatcher</a></li>
+	<li><a href="r/r2">redirect</a></li>
+	<li><a href="r/r3">chain</a></li>
+	<li><a href="r/r4">redirectAction</a></li>
+	<li>freemarker</li>
+	<li>httpheader</li>
+	<li>stream</li>
+	<li>velocity</li>
+	<li>xslt</li>
+	<li>plaintext</li>
+	<li>tiles</li>
+	</ol>
+	
 	<hr style="border: 1 dashed #987cb9" />
 
 </body>
