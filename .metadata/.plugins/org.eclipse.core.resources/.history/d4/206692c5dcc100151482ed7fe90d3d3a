@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<base href="<%=basePath%>" />
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030" />
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="path/path.action">路径问题说明</a>
+	<hr noshade color="#0066cc" />
+	Action执行的时候并不一定要执行execute方法
+	<br /> 可以在配置文件中配置Action的时候用method=来指定执行哪个方法
+	也可以在url地址中动态指定（动态方法调用DMI）（推荐）
+	<br />
+	<a href="/user/userAdd">添加用户</a>
+	<br />
+	<a href="/user/user!add">添加用户</a>
+	<br /> 前者会产生太多的action，所以不推荐使用
+
+	<hr noshade color="#0066cc" />
+
+	使用通配符，将配置量降到最低
+	<br />
+	<a href="/actions/Studentadd">添加学生</a>
+	<a href="/actions/Studentdelete">删除学生</a>
+	<br /> 不过，一定要遵守"约定优于配置"的原则
+	<br />
+	<a href="/actions/Teacher_add">添加老师</a>
+	<a href="/actions/Teacher_delete">删除老师</a>
+	<a href="/actions/Course_add">添加课程</a>
+	<a href="/actions/Course_delete">删除课程</a>
+
+	<hr noshade color="#0066cc" />
+	使用action属性接收参数
+	<a href="user/user_007?name=a&age=8">添加用户</a>
+
+	<hr noshade color="#0066cc" />
+	<a href="user/user_008?user.name=a&user.age=8">使用Domain
+		Model接收参数,添加用户</a>
+
+	<!-- 	中文问题 -->
+	<hr noshade color="#0066cc" />
+	使用action属性接收参数，测试中文问题
+	<form action="user/user_008" method="post">
+		姓名：<input type="text" name="name"></input> <input type="submit"
+			value="submit" />
+	</form>
+	<!-- 	数据验证 -->
+	<hr noshade color="#0066cc" />
+	使用addFieldError方法和s:fieldError标签简单处理数据校验
+	<a href="user/user_009?name=a">添加错误的用户</a>
+	<a href="user/user_009?name=admin">添加真确的用户</a>
+	
+	<hr style="border:1 dashed #987cb9" width="80%" color=#987cb9 SIZE=1 />
+</body>
+</html>

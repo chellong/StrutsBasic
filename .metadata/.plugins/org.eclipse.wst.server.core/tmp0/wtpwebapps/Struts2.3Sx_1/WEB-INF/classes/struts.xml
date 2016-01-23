@@ -6,7 +6,7 @@
 <struts>
 	<!--打开开发模式，更改配置文件后更新到服务器 -->
 	<constant name="struts.devMode" value="true" />
-	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<package name="default" namespace="/" extends="struts-default">
 		<action name="hello">
 			<result>
@@ -28,35 +28,52 @@
 
 
 	</package>
-	
+
 	<package name="user" extends="struts-default" namespace="/user">
-        <action name="userAdd" class="com.example.struts2.user.action.UserAction" method="add">
-            <result>/user_add_success.jsp</result>
-        </action>
-        <action name="user" class="com.example.struts2.user.action.UserAction">
-            <result>/user_add_success.jsp</result>
-        </action>
-		
+		<action name="userAdd" class="com.example.struts2.user.action.UserAction"
+			method="add">
+			<result>/user_add_success.jsp</result>
+		</action>
+		<action name="user" class="com.example.struts2.user.action.UserAction">
+			<result>/user_add_success.jsp</result>
+		</action>
+
 		<!--007 -->
-         <action name="user_007" class="com.example.struts2.user.action.UserAction" method="add">
-            <result>/user_add_success.jsp</result>
-        </action>
-        
-        <!--008 -->
-        <action name="user_008" class="com.example.struts2.user.action.UserAction" method="add">
-            <result>/user_add_success.jsp</result>
-        </action>
-        
-    </package>
-    
+		<action name="user_007" class="com.example.struts2.user.action.UserAction"
+			method="add">
+			<result>/user_add_success.jsp</result>
+		</action>
+
+		<!--008 -->
+		<action name="user_008" class="com.example.struts2.user.action.UserAction"
+			method="add">
+			<result>/user_add_success.jsp</result>
+		</action>
+		<!-- 009 -->
+		<action name="user_009" class="com.example.struts2.user.action.UserAction2"
+		    method="add">
+			<result>/user_add_success.jsp</result>
+			<result name="error">/user_add_error.jsp</result>
+		</action>
+
+	</package>
 	<package name="actions" extends="struts-default" namespace="/actions">
-        <action name="Student*" class="com.example.struts2.action.StudentAction" method="{1}">
-            <result>/Student{1}_success.jsp</result>
-        </action>
-        
-        <action name="*_*" class="com.example.struts2.action.{1}Action" method="{2}">
-            <result>/{1}_{2}_success.jsp</result>
-            <!-- {0}_success.jsp -->
+		<action name="Student*" class="com.example.struts2.action.StudentAction"
+			method="{1}">
+			<result>/Student{1}_success.jsp</result>
+		</action>
+
+		<action name="*_*" class="com.example.struts2.action.{1}Action"
+			method="{2}">
+			<result>/{1}_{2}_success.jsp</result>
+			<!-- {0}_success.jsp -->
+		</action>
+	</package>
+	
+	<!-- 012 -->
+	<package name="login" extends="struts-default" namespace="/login">
+        <action name="login*" class="com.example.struts2.user.action.LoginAction{1}">
+            <result>/user_login_success.jsp</result>
         </action>
     </package>
 </struts>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!--打开开发模式，更改配置文件后更新到服务器 -->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="hello">
+			<result>
+				/hello.jsp
+			</result>
+		</action>
+		<!-- 命名空间 -->
+		<action name="namespace">
+			<result>/namespace.jsp</result>
+		</action>
+		<!-- action方式 -->
+		<action name="action" class="com.example.struts2.front.action.IndexAction1">
+			<result name="success">/actionIntroduction.jsp</result>
+		</action>
+		<!-- 路径问题 -->
+		<action name="path" class="com.example.struts2.path.action.PathAction">
+			<result name="path">/path.jsp</result>
+		</action>
+
+
+	</package>
+
+	<package name="user" extends="struts-default" namespace="/user">
+		<action name="userAdd" class="com.example.struts2.user.action.UserAction"
+			method="add">
+			<result>/user_add_success.jsp</result>
+		</action>
+		<action name="user" class="com.example.struts2.user.action.UserAction">
+			<result>/user_add_success.jsp</result>
+		</action>
+
+		<!--007 -->
+		<action name="user_007" class="com.example.struts2.user.action.UserAction"
+			method="add">
+			<result>/user_add_success.jsp</result>
+		</action>
+
+		<!--008 -->
+		<action name="user_008" class="com.example.struts2.user.action.UserAction"
+			method="add">
+			<result>/user_add_success.jsp</result>
+		</action>
+		<!-- 009 -->
+		<action name="user_009" class="com.example.struts2.user.action.UserAction2"
+		    method="add">
+			<result>/user_add_success.jsp</result>
+			<result name="error">/user_add_error.jsp</result>
+		</action>
+
+	</package>
+	<!-- 012 -->
+	<package name="login" extends="struts-default" namespace="/login">
+        <action name="login*" class="com.bjsxt.struts2.user.action.LoginAction{1}">
+            <result>/user_login_success.jsp</result>
+        </action>
+    </package>
+    
+	<package name="actions" extends="struts-default" namespace="/actions">
+		<action name="Student*" class="com.example.struts2.action.StudentAction"
+			method="{1}">
+			<result>/Student{1}_success.jsp</result>
+		</action>
+
+		<action name="*_*" class="com.example.struts2.action.{1}Action"
+			method="{2}">
+			<result>/{1}_{2}_success.jsp</result>
+			<!-- {0}_success.jsp -->
+		</action>
+	</package>
+</struts>
