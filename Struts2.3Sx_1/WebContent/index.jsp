@@ -131,6 +131,23 @@
 	</ol>
 	
 	<hr style="border: 1 dashed #987cb9" />
+	访问属性
+	<a href="ognl/ognl.action?username=u&password=p">ognl</a>
+	
+	<hr style="border: 1 dashed #987cb9" />
+	访问属性
+	<a href="tags/tag_2000?username=username&password=password">tags</a>
+	
+	<hr style="border: 1 dashed #987cb9" />
+	2001 theme 测试
+	<a href="theme/theme_2001">test_1 go</a>
+	<a href="theme/theme_2002">test_2 go</a>
+	<a href="theme/theme_2003">test_3 go</a>
+	<a href="theme/theme_2004">test_4 go</a>
+	
+	<hr style="border: 1 dashed #987cb9" />
+	<hr style="border: 1 dashed #987cb9" />
+	<hr style="border: 1 dashed #987cb9" />
 	<hr style="border: 1 dashed #987cb9" />
 	<hr style="border: 1 dashed #987cb9" />
 	<hr style="border: 1 dashed #987cb9" />

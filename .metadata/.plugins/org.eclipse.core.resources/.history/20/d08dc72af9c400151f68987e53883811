@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 配置文件属性 -->
+	<!--打开开发模式，更改配置文件后更新到服务器 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 国际化 -->
+	<!--<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant> -->
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+
+	<constant name="struts.ui.theme" value="simple" />
+
+	<!-- <constant name="struts.ui.theme" value="css_xhtml" /> -->
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<!-- 默認頁 -->
+		<default-action-ref name="index"></default-action-ref>
+
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+
+		<action name="hello">
+			<result>
+				/hello.jsp
+			</result>
+		</action>
+
+		<!-- 命名空间 -->
+		<action name="namespace">
+			<result>/namespace.jsp</result>
+		</action>
+
+		<!-- action方式 -->
+		<action name="action" class="com.example.struts2.front.action.IndexAction1">
+			<result name="success">/actionIntroduction.jsp</result>
+		</action>
+
+		<!-- 路径问题 -->
+		<action name="path" class="com.example.struts2.path.action.PathAction">
+			<result name="path">/path.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 2001 -->
+	<package name="theme" namespace="/theme" extends="struts-default">
+
+		<action name="theme_2001" class="com.example.struts2.theme.ThemeAction">
+			<result>/Jsp/theme.jsp</result>
+		</action>
+		
+		<action name="theme_2002" class="com.example.struts2.theme.ThemeAction">
+			<result>/Jsp/theme2.jsp</result>
+		</action>
+		
+		<action name="theme_2002" class="com.example.struts2.theme.ThemeAction">
+			<result>/Jsp/theme3.jsp</result>
+		</action>
+		
+		<action name="theme_2002" class="com.example.struts2.theme.ThemeAction">
+			<result>/Jsp/theme4.jsp</result>
+		</action>
+
+	</package>
+
+	<!--2000 -->
+	<package name="tags" namespace="/tags" extends="struts-default">
+
+		<action name="tag_2000" class="com.example.struts2.tags.TagsAction">
+			<result>/Jsp/tags.jsp</result>
+		</action>
+
+	</package>
+
+	<!-- action -->
+	<package name="user" extends="struts-default" namespace="/user">
+
+		<!-- 0016 -->
+		<!-- 公用的全局页面 -->
+		<global-results>
+			<result name="mainpage">/Jsp/main.jsp</result>
+		</global-results>
+
+		<action name="user_0016" class="com.example.struts2.user.action.UserAction3">
+			<result>/Jsp/user_success.jsp</result>
+			<result name="error">/Jsp/user_error.jsp</result>
+		</action>
+
+		<!--0017 -->
+		<action name="user_0017" class="com.example.struts2.user.action.UserAction4">
+			<result>${r}</result>
+		</action>
+
+		<!--0018 -->
+		<!--传递参数，一次request共享值栈 -->
+		<action name="user_0018" class="com.example.struts2.user.action.UserAction5">
+			<result type="redirect">/Jsp/user_success.jsp?t=${type}</result>
+		</action>
+
+		<!--0001-0007 -->
+		<action name="userAdd" class="com.example.struts2.user.action.UserAction"
+			method="add">
+			<result>/user_add_success.jsp</result>
+		</action>
+		<action name="user" class="com.example.struts2.user.action.UserAction">
+			<result>/user_add_success.jsp</result>
+		</action>
+
+		<!--0007 -->
+		<action name="user_007" class="com.example.struts2.user.action.UserAction"
+			method="add">
+			<result>/user_add_success.jsp</result>
+		</action>
+
+		<!--0008 -->
+		<action name="user_008" class="com.example.struts2.user.action.UserAction"
+			method="add">
+			<result>/user_add_success.jsp</result>
+		</action>
+
+		<!--0009 -->
+		<action name="user_009" class="com.example.struts2.user.action.UserAction2"
+			method="add">
+			<result>/user_add_success.jsp</result>
+			<result name="error">/user_add_error.jsp</result>
+		</action>
+	</package>
+
+	<!-- 0016 -->
+	<package name="admin" namespace="/admin" extends="user">
+		<action name="admin" class="com.example.struts2.user.action.AdminAction">
+			<result>/admin.jsp</result>
+		</action>
+	</package>
+
+	<!--0001-0007 -->
+	<package name="actions" extends="struts-default" namespace="/actions">
+		<action name="Student*" class="com.example.struts2.action.StudentAction"
+			method="{1}">
+			<result>/Student{1}_success.jsp</result>
+		</action>
+
+		<action name="*_*" class="com.example.struts2.action.{1}Action"
+			method="{2}">
+			<result>/{1}_{2}_success.jsp</result>
+			<!-- {0}_success.jsp -->
+		</action>
+	</package>
+
+	<!-- 包含 -->
+	<include file="login.xml" />
+	<include file="resulttype.xml" />
+	<include file="ognl.xml" />
+</struts>
